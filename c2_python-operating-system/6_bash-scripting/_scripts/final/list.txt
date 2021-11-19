@@ -1,0 +1,4 @@
+001 jane /mnt/var/jane_profile.jpg
+002 jane /srv/var/jane_dgag_sopr.doc
+004 bpx /srv/var/jane_scx.png
+005 rrrx /srv/var/jane_scx.doc

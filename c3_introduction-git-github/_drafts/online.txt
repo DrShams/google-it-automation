@@ -1,0 +1,7 @@
+git remote -v
+#show us url associated with the repo
+
+git remote show origin
+#
+
+git branch -r

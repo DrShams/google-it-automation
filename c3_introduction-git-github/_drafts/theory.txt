@@ -1,0 +1,124 @@
+mkdir newdirectory
+cd newdirectory
+git init
+git config --user.email "sithis02@mail.ru"
+git config --user.name "DrShams"
+git config -l
+git status
+
+#1
+nano newfile.py
+
+git add newfile.py
+#it will move a new file from untracked to stage status
+#mofidied stage -> to staged stage
+#now file ready to be commited
+
+git commit
+#it will open default editor
+
+#or
+
+git commit -m "Comments"
+
+#2
+nano newfile.py
+#Make some new changes
+
+git diff newfile.py
+#new changes will appear here
+
+git commit -a
+#skit the staging area
+#skip git add command
+#a shortcut to stage any changes to tracked files and commit them in one step
+#it doesn'y work on new file (just created, cause they are untracked)
+
+git commit -a -m "Call check_reboot from main, and added exit with 1 on error"
+
+git log -p
+
+git show "ID of the previous commit"
+
+git log --stat
+
+git add -p
+#Allows a user to interactively review patches to add to the current commit
+git diff --staged
+#to see changes has been staged but not committed
+git commit -m "Added new commit"
+
+git rm "file.py"
+git commit -m 'Deleted unneded file'
+
+git mv oldfile.py newname.py
+#renage that file
+
+echo .png > .gitignore
+#to ignore all file with .png
+git add .gitignore
+git commit -m 'added .gitignre file with ignoring .png files'
+
+git checkout
+#to discard new changes (or revert to previous stage of file)
+
+./check_free_space.py > newfile.txt
+git add *
+git status
+git restore --staged newfile.txt
+#it will remove newfile.txt file from staged area
+
+git add onefile.py
+git commit -m 'Added 2 new files'
+#but really it added only 1 file
+touch gather-info.sh
+git add gather-info.sh
+git commit --amend
+git status
+
+git revert HEAD
+#With git revert, a new commit is created with inverse changes. This cancels previous changes instead of making it as though the original commit never happened.
+#rollback
+#Add additional comment in commit message
+
+git log -p -2
+#-p (patches)
+#-2 limit to the last 2 entries
+git show "commit ID"
+
+git branch
+#shows up all branches for the repo
+
+git branch new-feature
+#adds new-feature branch
+
+git checkout new-feature
+#it makes new-feature now the primary branch(instead of 'master' branch)
+
+git checkout -b new-branch
+#create new branch and switch to it
+atom free-memory.py
+git add free-memory.py
+git commit -m 'added free-memory.py file'
+
+git branch -d
+#delete obsolete branch
+
+git merge new-branch
+#it will take all the history and files from new-branch to the master branch
+#now both branches are pointed in the same commit
+
+git log --graph --oneline
+#This shows a summarized view of the commit history for a repo.
+
+git merge --abort
+#If there are merge conflicts (meaning files are incompatible), --abort can be used to abort the merge action.
+
+git remote show origin
+
+git log --graph --oneline --all
+
+git log -p origin/New
+
+git push -u origin Old
+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

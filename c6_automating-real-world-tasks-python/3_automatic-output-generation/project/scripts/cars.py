@@ -1,14 +1,13 @@
 #!/usr/bin/env python3
 
 import emails
-import reports 
+import reports
 import json
 import locale
 import sys
 import collections
 import operator
 import os
-# import os.path
 
 def load_data(filename):
   """Loads the contents of filename as a JSON file."""
@@ -42,14 +41,14 @@ def process_data(data):
       max_revenue = item
 
     """
-    1. Calculate the car model which had the most sales by completing the process_data method, 
+    1. Calculate the car model which had the most sales by completing the process_data method,
     and then appending a formatted string to the summary list in the below format:
         * "The {car model} had the most sales: {total sales}"
-    2. Calculate the most popular car_year across all car make/models (in other words, find the total count of cars with the car_year equal to 2005, equal to 2006, etc. and then figure out the most popular year) 
+    2. Calculate the most popular car_year across all car make/models (in other words, find the total count of cars with the car_year equal to 2005, equal to 2006, etc. and then figure out the most popular year)
     by completing the process_data method, and append a formatted string to the summary list in the below format:
         * "The most popular year was {year} with {total sales in that year} sales."
     """
-    
+
     # TODO: also handle max sales
     if item["total_sales"] > max_sales["total_sales"]:
       max_sales = item
@@ -69,8 +68,8 @@ def process_data(data):
   return summary
   """
   Expected:
-  [['The Mercedes-Benz E-Class (2009) generated the most revenue: $22749529.02', 
-  'The Acura Integra (1995) had the most sales: 1192', 
+  [['The Mercedes-Benz E-Class (2009) generated the most revenue: $22749529.02',
+  'The Acura Integra (1995) had the most sales: 1192',
   'The most popular year was 2007 with 21534 sales.']]
   """
 
@@ -87,7 +86,7 @@ def main(argv):
   data = load_data("car_sales.json")
   # data = load_data(os.path.expanduser('~') + "/car_sales.json")
   summary = process_data(data)
-  
+
   """
   The PDF should contain:
 
@@ -96,7 +95,7 @@ def main(argv):
     * A table which contains all the information parsed from the JSON file, organised by id_number. The car details should be combined into one column in the form <car_make> <car_model> (<car_year>).
     Note: You can use the cars_dict_to_table function for the above task.
   """
-  
+
   # TODO: turn this into a PDF report
   filename = "/tmp/cars.pdf"
   title = "Sales summary for last month"
@@ -114,6 +113,6 @@ def main(argv):
   message = emails.generate(sender, recipient, subject, body, attachment_path)
   emails.send(message)
   # print("EMAIL OK") # test
-  
+
 if __name__ == "__main__":
   main(sys.argv)

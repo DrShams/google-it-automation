@@ -1,0 +1,15 @@
+git clone https://github.com/DrShams/rearrange.git
+cd rearrange
+git checkout -b add-readme
+atom README.md
+git add README.md
+git commit -m 'Add a simple README.md file'
+git push -u origin add-readme
+
+git rebase -i main
+#change squash instead of pick to the second row
+#save and exit
+#modify first message and delete second
+#save and exit
+
+git push -f

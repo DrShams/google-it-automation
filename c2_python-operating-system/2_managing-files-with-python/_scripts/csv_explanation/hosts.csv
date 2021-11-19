@@ -1,0 +1,7 @@
+machines,ip
+workstation.local,192.168.31.1
+webserver.cloud,10.0.0.2
+webserver2.local,192.168.31.1
+webserve3r.cloud,10.0.0.6
+workstation.local,192.168.31.2
+webserver.cloud,10.0.0.2
